@@ -1,0 +1,14 @@
+server:
+  port: 8080
+  servlet:
+    context-path: "/mobile_study"
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: root
+    url: jdbc:mysql://localhost:3306/mobile_study?useUnicode=true&characterEncoding=UTF-8
+mybatis:
+  type-aliases-package: classpath*:com.study.mobile_study.entity
+  mapper-locations: classpath*:mybatis/mapper/*.xml
+
