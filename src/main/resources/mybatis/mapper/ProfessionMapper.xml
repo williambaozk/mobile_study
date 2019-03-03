@@ -33,6 +33,38 @@
       </if>
     </trim>
   </insert>
+  <resultMap id="BaseResultMap" type="com.study.mobile_study.entity.ProfessionKey">
+    <id column="profession_id" jdbcType="INTEGER" property="professionId" />
+    <id column="profession_name" jdbcType="VARCHAR" property="professionName" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="com.study.mobile_study.entity.ProfessionKey">
+    delete from profession
+    where profession_id = #{professionId,jdbcType=INTEGER}
+      and profession_name = #{professionName,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.study.mobile_study.entity.ProfessionKey">
+    insert into profession (profession_id, profession_name)
+    values (#{professionId,jdbcType=INTEGER}, #{professionName,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.study.mobile_study.entity.ProfessionKey">
+    insert into profession
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="professionId != null">
+        profession_id,
+      </if>
+      <if test="professionName != null">
+        profession_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="professionId != null">
+        #{professionId,jdbcType=INTEGER},
+      </if>
+      <if test="professionName != null">
+        #{professionName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
   <resultMap id="BaseResultMap" type="com.study.mobile_study.entity.Profession">
     <id column="profession_id" jdbcType="INTEGER" property="professionId" />
     <id column="name" jdbcType="VARCHAR" property="name" />
